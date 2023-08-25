@@ -1,5 +1,7 @@
 package screenmatch;
 
+import br.com.alura.screenmatch.modelos.Filme;
+
 public class Principal {
 
 	public static void main(String[] args) {
@@ -7,13 +9,20 @@ public class Principal {
 		
 		filme.nome = "Interestelar";
 		filme.anoDeLancamento = 2014;
-		filme.avaliacao = 4.9;
 		filme.duracaoEmMinutos = 169;
 		
 		
 		
-		System.out.println(filme.nome);
-		System.out.println(filme.anoDeLancamento);
+		filme.exibeFichaTecnica();
+		filme.avalia(8);
+		filme.avalia(10);
+		filme.avalia(9);
+		filme.avalia(8.9);
+		
+		//System.out.println(filme.somaDasAvaliacao);
+		System.out.println("Total de avaliações: " + filme.getTotalDeAvaliacoes());
+		System.out.println(filme.pegaMedia() );
+		
 
 	}
 
