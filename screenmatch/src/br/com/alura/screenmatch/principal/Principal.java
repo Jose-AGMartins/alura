@@ -1,5 +1,8 @@
-package screenmatch;
+package br.com.alura.screenmatch.principal;
 import br.com.alura.screenmatch.modelos.Episodio;
+
+import java.util.ArrayList;
+
 import br.com.alura.screenmatch.calculo.CalculadoraDeTempo;
 import br.com.alura.screenmatch.calculo.FiltroRecomendacao;
 import br.com.alura.screenmatch.modelos.Filme;
@@ -8,10 +11,7 @@ import br.com.alura.screenmatch.modelos.Serie;
 public class Principal {
 
 	public static void main(String[] args) {
-		Filme filme = new Filme();
-		
-		filme.setNome ("Interestelar");
-		filme.setAnoDeLancamento(2014);
+		Filme filme = new Filme("Interestelar", 2014);
 		filme.setDuracaoEmMinutos (169);
 		
 		
@@ -29,9 +29,7 @@ public class Principal {
 		System.out.println("Total de avaliações: " + filme.getTotalDeAvaliacoes());
 		System.out.println(filme.pegaMedia() );
 		
-		Serie lost = new Serie();
-		lost.setNome("Lost");
-		lost.setAnoDeLancamento(2000);
+		Serie lost = new Serie("Lost", 2000);
 		
 		lost.setTemporadas(10);
 		lost.setEpisodiosPorTemporada(10);
@@ -40,14 +38,10 @@ public class Principal {
 		
 		System.out.println("Tempo para maratonar " + lost.getNome() + ": " + lost.getDuracaoEmMinutos() + " minutos.");
 		
-		Filme filmeDois = new Filme();
-		filmeDois.setNome("Homem Aranha");
-		filmeDois.setAnoDeLancamento(2002);
+		Filme filmeDois = new Filme("Homem Aranha", 2002);
 		filmeDois.setDuracaoEmMinutos(140);
 		
-		Filme filmeTres = new Filme();
-		filmeTres.setNome("Homem Aranha 2");
-		filmeTres.setAnoDeLancamento(2004);
+		Filme filmeTres = new Filme("Homem Aranha 2", 2004);
 		filmeTres.setDuracaoEmMinutos(155);
 		
 		
@@ -67,6 +61,16 @@ public class Principal {
 		episodio.setTotalDeVisualizacoes(300);
 		
 		filtro.filtra (episodio);
+		
+		ArrayList<Filme>listaDeFilmes = new ArrayList<>();
+		listaDeFilmes.add(filmeTres);
+		listaDeFilmes.add(filmeDois);
+		listaDeFilmes.add(filme);
+		
+		System.out.println("Tamanho da lista " + listaDeFilmes.size());
+		System.out.println("Primeiro filme: " + listaDeFilmes.get(0).getNome());
+		System.out.println(listaDeFilmes);
+		
 		
 	
 	}
